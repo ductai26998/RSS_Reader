@@ -1,15 +1,21 @@
 <template>
   <div id="app">
-    <Home />
+    <!-- <Home /> -->
+    <transition name="fade" mode="out-in">
+      <DefaultLayout>
+      <transition name="slide-fade" mode="out-in">
+        <router-view />
+      </transition>
+      </DefaultLayout>
+    </transition>
   </div>
 </template>
 
 <script>
-import Home from "./views/Home.vue";
+import DefaultLayout from "./layouts/default/DefaultLayout.vue";
 export default {
-  components: { Home },
+  components: { DefaultLayout },
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

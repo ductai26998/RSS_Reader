@@ -62,7 +62,7 @@
 
 <script>
 import axios from "axios";
-import ArticleItem from "../components/ArticleItem.vue"
+import ArticleItem from "../../components/articleItem/ArticleItem.vue"
 
 export default {
   components: {ArticleItem},

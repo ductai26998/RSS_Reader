@@ -1,0 +1,175 @@
+<template>
+  <div class="header">
+    <div class="logo">
+      <h1 class="logo-text">RSS READER</h1>
+    </div>
+    <div class="header-nav">
+      <Navbar></Navbar>
+    </div>
+    <hr class="header_boundary" />
+    <!-- <div class="top-topic">
+        <div class="top-topic_left">
+          <HotTopic></HotTopic>
+          <h4 class="hot-topic_title">
+            {popular[0] ? popular[0].title : ''}
+          </h4>
+        </div>
+        <div class="top-topic_right">
+          <div class="newest top-topic_right_item">
+            <h6 class="right_item_sub-title">NEWEST</h6>
+            <h4 class="right_item_title">
+              {lastNewBlogs[0] ? lastNewBlogs[0].title : ''}
+            </h4>
+          </div>
+          <div class="top-1 top-topic_right_item">
+            <h6 class="right_item_sub-title">TOP ONE</h6>
+            <h4 class="right_item_title">
+              {popular[0] ? popular[0].title : ''}
+            </h4>
+          </div>
+        </div>
+      </div> -->
+  </div>
+</template>
+
+<script>
+import Navbar from "../navbar/Navbar.vue";
+
+export default {
+  name: "Header",
+  components: { Navbar }
+};
+</script>
+
+<style lang="scss">
+@import "../../assets/scss/style.scss";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 20px;
+  background-image: url("../../assets/images/cover1.jpg");
+  background-size: fixed;
+  letter-spacing: 0.5px;
+  z-index: 3;
+
+  .logo {
+  }
+
+  .logo-text {
+    color: $redColor;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1rem;
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  // .header-nav_right {
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  .header-nav_btn {
+    @include rightPage;
+    display: flex;
+    flex-direction: row;
+  }
+
+  // .dropdown {
+  //   display: none;
+
+  //   .btn {
+  //     background-color: transparent !important;
+  //     color: $redColor;
+  //     border: none;
+  //     outline: none;
+  //   }
+  //   .btn:hover {
+  //     color: $blueColor;
+  //   }
+  // }
+
+  // .dropdown-menu {
+  //   background-color: rgba(255, 255, 255, 0.658) !important;
+  // }
+
+  @media screen and (max-width: 750px) {
+    .header-nav_btn {
+      display: none !important;
+    }
+    // .dropdown {
+    //   display: block !important;
+    // }
+    .btn-container {
+      margin: 0 !important;
+    }
+  }
+
+  .header_boundary {
+    color: #fff;
+    margin: 0;
+    z-index: 2;
+  }
+
+//   .top-topic {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     height: 250px;
+//     width: 100%;
+//     color: #fff;
+//     z-index: 1;
+//   }
+
+//   .top-topic * {
+//     line-height: 1.6;
+//   }
+
+//   .top-topic_left {
+//     @include leftPage;
+
+//     .hot-topic_title {
+//       width: 37vw !important;
+//       font-family: serif;
+//       font-weight: 600;
+//     }
+//   }
+
+//   .top-topic_right {
+//     @include rightPage;
+//   }
+
+//   .top-topic_right_item {
+//   }
+
+//   .right_item_sub-title {
+//     @include textStyle($geyColor);
+//   }
+
+//   .right_item_title {
+//     @include textStyle(#fff, 15px, "Libre Baskerville", 600);
+//   }
+}
+
+.header * {
+  z-index: 3;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  background-color: rgb(100, 98, 98);
+  opacity: 0.4;
+}
+</style>
