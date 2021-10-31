@@ -3,9 +3,9 @@
     <!-- <Home /> -->
     <transition name="fade" mode="out-in">
       <DefaultLayout>
-      <transition name="slide-fade" mode="out-in">
-        <router-view />
-      </transition>
+        <transition name="slide-fade" mode="out-in">
+          <router-view />
+        </transition>
       </DefaultLayout>
     </transition>
   </div>

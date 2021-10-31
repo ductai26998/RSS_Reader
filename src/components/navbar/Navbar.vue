@@ -2,10 +2,14 @@
   <nav class="navbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <router-link class="nav-item" to="/">Trang chủ</router-link>
+        <router-link class="nav-item" to="/"
+          ><span class="btn">Trang chủ</span></router-link
+        >
       </li>
       <li class="nav-item">
-        <router-link class="nav-item" to="/">Thêm RSS</router-link>
+        <router-link class="nav-item" to="/"
+          ><span class="btn">Thêm RSS</span></router-link
+        >
       </li>
     </ul>
   </nav>
@@ -28,13 +32,23 @@ export default {
   padding-right: 20px;
   width: 40%;
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
   justify-content: left;
   .nav-item {
     margin-right: 20px;
-    .nav-link {
-      color: #fff;
-    }
+  }
+  .btn {
+    background-color: transparent !important;
+    color: $redColor;
+    @include textStyle(
+      $color: #fff,
+      $size: 15px,
+      $family: sans-serif,
+      $weight: 600
+    );
+  }
+  .btn:hover {
+    color: $redColor;
   }
 }
 </style>

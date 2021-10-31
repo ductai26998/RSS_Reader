@@ -1,18 +1,28 @@
 <template>
   <div class="default-layout">
     <Header />
-    <slot />
+    <div class="container-fluid">
+      <Sidebar />
+      <slot />
+    </div>
     <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
 import Header from "../../components/header/Header.vue";
+import Sidebar from "../../components/sidebar/Sidebar.vue";
 
 export default {
   name: "DefaultLayout",
-  components: { Header },
+  components: { Header, Sidebar },
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.container-fluid {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+</style>

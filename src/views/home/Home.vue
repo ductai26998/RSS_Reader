@@ -62,10 +62,10 @@
 
 <script>
 import axios from "axios";
-import ArticleItem from "../../components/articleItem/ArticleItem.vue"
+import ArticleItem from "../../components/articleItem/ArticleItem.vue";
 
 export default {
-  components: {ArticleItem},
+  components: { ArticleItem },
   data() {
     return {
       articles: [],
@@ -86,10 +86,13 @@ export default {
           const description = this.getText(
             item.querySelector("description").innerHTML
           );
+          const pubdate = item.querySelector("pubdate").innerHTML;
+
           this.articles.push({
-            title: title,
-            link: link,
-            description: description,
+            title,
+            link,
+            description,
+            pubdate,
           });
         });
       })
@@ -106,3 +109,7 @@ export default {
   computed: {},
 };
 </script>
+
+<style lang="scss">
+@import "../../assets/scss/style";
+</style>

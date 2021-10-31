@@ -37,7 +37,7 @@ import Navbar from "../navbar/Navbar.vue";
 
 export default {
   name: "Header",
-  components: { Navbar }
+  components: { Navbar },
 };
 </script>
 
@@ -63,6 +63,7 @@ export default {
     font-weight: 600;
     text-align: center;
     letter-spacing: 1rem;
+    font-family: sans-serif;
   }
 
   .header-nav {
@@ -117,44 +118,44 @@ export default {
     z-index: 2;
   }
 
-//   .top-topic {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     height: 250px;
-//     width: 100%;
-//     color: #fff;
-//     z-index: 1;
-//   }
+  //   .top-topic {
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //     height: 250px;
+  //     width: 100%;
+  //     color: #fff;
+  //     z-index: 1;
+  //   }
 
-//   .top-topic * {
-//     line-height: 1.6;
-//   }
+  //   .top-topic * {
+  //     line-height: 1.6;
+  //   }
 
-//   .top-topic_left {
-//     @include leftPage;
+  //   .top-topic_left {
+  //     @include leftPage;
 
-//     .hot-topic_title {
-//       width: 37vw !important;
-//       font-family: serif;
-//       font-weight: 600;
-//     }
-//   }
+  //     .hot-topic_title {
+  //       width: 37vw !important;
+  //       font-family: serif;
+  //       font-weight: 600;
+  //     }
+  //   }
 
-//   .top-topic_right {
-//     @include rightPage;
-//   }
+  //   .top-topic_right {
+  //     @include rightPage;
+  //   }
 
-//   .top-topic_right_item {
-//   }
+  //   .top-topic_right_item {
+  //   }
 
-//   .right_item_sub-title {
-//     @include textStyle($geyColor);
-//   }
+  //   .right_item_sub-title {
+  //     @include textStyle($geyColor);
+  //   }
 
-//   .right_item_title {
-//     @include textStyle(#fff, 15px, "Libre Baskerville", 600);
-//   }
+  //   .right_item_title {
+  //     @include textStyle(#fff, 15px, "Libre Baskerville", 600);
+  //   }
 }
 
 .header * {
