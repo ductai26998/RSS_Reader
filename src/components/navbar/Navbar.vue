@@ -7,7 +7,7 @@
         >
       </li>
       <li class="nav-item">
-        <router-link class="nav-item" to="/"
+        <router-link class="nav-item" to="/add"
           ><span class="btn">Thêm RSS</span></router-link
         >
       </li>

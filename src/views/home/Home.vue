@@ -56,6 +56,7 @@
           </div>
         </div> -->
     </div>
+    <IntroAuthor />
     <!-- <div class="loading show"><Loading /></div> -->
   </div>
 </template>
@@ -63,16 +64,51 @@
 <script>
 import axios from "axios";
 import ArticleItem from "../../components/articleItem/ArticleItem.vue";
+import IntroAuthor from "../../components/introAuthor/IntroAuthor.vue";
+
+import { mapMutations } from "vuex";
+import { mapState } from "vuex";
+
+import { collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+import "firebase/storage";
+import "firebase/firestore";
 
 export default {
-  components: { ArticleItem },
+  components: { ArticleItem, IntroAuthor },
+  computed: mapState(["currentChanel"]),
+  methods: {
+    ...mapMutations(["changeChannel"]),
+    getText(item) {
+      return item.slice(9, item.length - 3);
+    },
+    async getUrls() {
+      try {
+        const db = getFirestore();
+        const querySnapshot = await getDocs(collection(db, "urls"));
+        querySnapshot.forEach((doc) => {
+          this.urls.push(doc.data());
+        });
+      } catch (err) {
+        // console.log(err);
+        alert(err);
+      }
+    },
+  },
   data() {
     return {
       articles: [],
+      urls: [],
     };
   },
   async created() {
-    const RSS_URL = `https://vass.gov.vn/noidung/rss/Lists/RssChannel/View_Detail.aspx?ItemID=27`;
+    await this.getUrls();
+    if (this.$attrs.id !== this.currentChanel.id && this.$attrs.id) {
+      const channel = this.urls.find((url) => url.id === this.$attrs.id);
+      this.changeChannel(channel);
+    }
+
+    const RSS_URL = this.currentChanel.url;
 
     await axios
       .get(RSS_URL)
@@ -101,15 +137,14 @@ export default {
       });
   },
   beforeMount() {},
-  methods: {
-    getText(item) {
-      return item.slice(9, item.length - 3);
-    },
-  },
-  computed: {},
+  mounted() {},
 };
 </script>
 
 <style lang="scss">
 @import "../../assets/scss/style";
+.home {
+  display: flex;
+  flex-direction: row;
+}
 </style>

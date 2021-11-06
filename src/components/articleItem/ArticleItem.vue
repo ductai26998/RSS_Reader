@@ -6,8 +6,8 @@
     <div class="article-item__right">
       <h4 class="article-title">{{ article.title }}</h4>
       <div class="article-info">
-        <span class="article-info_time"> Được đăng tải trên </span>
-        <span class="article-info_author">Trang thông tin</span>
+        <span class="article-info_time"> Được đăng tải </span>
+        <!-- <span class="article-info_author">Trang thông tin</span> -->
         <span class="article-info_time"> vào</span>
         <span class="article-info_author"> {{ article.pubdate }} </span>
       </div>
