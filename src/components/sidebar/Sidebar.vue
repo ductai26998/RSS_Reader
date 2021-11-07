@@ -102,6 +102,7 @@ export default {
 
 .sidebar__item {
   border-bottom: solid 1px $coverColor;
+  cursor: pointer;
 }
 
 .sidebar__item * {
