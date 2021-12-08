@@ -80,7 +80,13 @@ export default {
   methods: {
     ...mapMutations(["changeChannel"]),
     getText(item) {
-      return item.slice(9, item.length - 3);
+      const exceptions = ["<![CDATA[", "]]>"];
+      exceptions.forEach((exception) => {
+        item = item.split(exception).join("");
+      });
+      return item;
+      // console.log(item);
+      // return item;
     },
     async getUrls() {
       try {
@@ -122,7 +128,11 @@ export default {
           const description = this.getText(
             item.querySelector("description").innerHTML
           );
-          const pubdate = item.querySelector("pubdate").innerHTML;
+          const pubdate = item.querySelector("pubdate")
+            ? item.querySelector("pubdate").innerHTML
+            : item.querySelector("pubDate")
+            ? item.querySelector("pubDate").innerHTML
+            : null;
 
           this.articles.push({
             title,
@@ -130,6 +140,7 @@ export default {
             description,
             pubdate,
           });
+          console.log(this.articles);
         });
       })
       .catch(function (error) {

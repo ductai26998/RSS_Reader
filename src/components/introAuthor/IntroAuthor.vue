@@ -59,6 +59,7 @@ export default {
 
 .intro-container {
   margin-left: 20px;
+  width: 300px;
   .intro-title {
     @include textStyle(
       $color: $articleContentColor,

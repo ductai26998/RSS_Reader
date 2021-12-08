@@ -4,16 +4,16 @@
       <img class="item-img" src="../../assets/images/cover1.jpg" />
     </div>
     <div class="article-item__right">
-      <h4 class="article-title">{{ article.title }}</h4>
+      <div class="article-title" v-html="article.title"></div>
       <div class="article-info">
         <span class="article-info_time"> Được đăng tải </span>
         <!-- <span class="article-info_author">Trang thông tin</span> -->
         <span class="article-info_time"> vào</span>
-        <span class="article-info_author"> {{ article.pubdate }} </span>
+        <span class="article-info_author">
+          {{ article.pubdate | moment("DD/MM/YYYY") }}
+        </span>
       </div>
-      <p class="article-content">
-        {{ article.description }}
-      </p>
+      <div class="article-content" v-html="article.description"></div>
       <a class="detail-link" :href="article.link">>> Xem chi tiết...</a>
     </div>
   </div>

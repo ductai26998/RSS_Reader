@@ -6,6 +6,7 @@ import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+Vue.use(require("vue-moment"));
 // import firebase from "firebase";
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
@@ -24,7 +25,7 @@ const firebaseConfig = {
   storageBucket: "rss-reader-2207.appspot.com",
   messagingSenderId: "602631679356",
   appId: "1:602631679356:web:f1bc80b12f7f22205888f9",
-  measurementId: "G-XY489WD6PC"
+  measurementId: "G-XY489WD6PC",
 };
 // Initialize Firebase
 export var app = initializeApp(firebaseConfig);
