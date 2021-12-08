@@ -84,9 +84,9 @@ export default {
       exceptions.forEach((exception) => {
         item = item.split(exception).join("");
       });
-      return item;
-      // console.log(item);
-      // return item;
+      var e = document.createElement("textarea");
+      e.innerHTML = item;
+      return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     },
     async getUrls() {
       try {
@@ -96,7 +96,6 @@ export default {
           this.urls.push(doc.data());
         });
       } catch (err) {
-        // console.log(err);
         alert(err);
       }
     },
