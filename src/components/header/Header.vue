@@ -7,28 +7,6 @@
       <Navbar></Navbar>
     </div>
     <hr class="header_boundary" />
-    <!-- <div class="top-topic">
-        <div class="top-topic_left">
-          <HotTopic></HotTopic>
-          <h4 class="hot-topic_title">
-            {popular[0] ? popular[0].title : ''}
-          </h4>
-        </div>
-        <div class="top-topic_right">
-          <div class="newest top-topic_right_item">
-            <h6 class="right_item_sub-title">NEWEST</h6>
-            <h4 class="right_item_title">
-              {lastNewBlogs[0] ? lastNewBlogs[0].title : ''}
-            </h4>
-          </div>
-          <div class="top-1 top-topic_right_item">
-            <h6 class="right_item_sub-title">TOP ONE</h6>
-            <h4 class="right_item_title">
-              {popular[0] ? popular[0].title : ''}
-            </h4>
-          </div>
-        </div>
-      </div> -->
   </div>
 </template>
 
