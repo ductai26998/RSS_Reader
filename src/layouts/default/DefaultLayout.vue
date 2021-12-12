@@ -35,11 +35,10 @@ export default {
         const db = getFirestore();
         const querySnapshot = await getDocs(collection(db, "urls"));
         querySnapshot.forEach((doc) => {
-          this.urls.push(doc.data())
+          this.urls.push({ ...doc.data(), id: doc.id });
         });
-
+        this.urls = this.urls.sort((a, b) => -a.createdAt + b.createdAt);
       } catch (err) {
-        // console.log(err);
         alert(err);
       }
     },

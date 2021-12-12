@@ -6,9 +6,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentChanel: {
+      id: "",
       name: "",
       url: "",
-      id: "",
+      createdAt: null,
     },
   },
   mutations: {

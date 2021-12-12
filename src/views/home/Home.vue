@@ -93,7 +93,7 @@ export default {
         const db = getFirestore();
         const querySnapshot = await getDocs(collection(db, "urls"));
         querySnapshot.forEach((doc) => {
-          this.urls.push(doc.data());
+          this.urls.push({ ...doc.data(), id: doc.id });
         });
       } catch (err) {
         alert(err);
@@ -139,7 +139,6 @@ export default {
             description,
             pubdate,
           });
-          console.log(this.articles);
         });
       })
       .catch(function (error) {

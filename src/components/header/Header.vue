@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="logo">
-      <h1 class="logo-text">RSS READER</h1>
+      <h1 class="logo-text">CFP READER</h1>
     </div>
     <div class="header-nav">
       <Navbar></Navbar>

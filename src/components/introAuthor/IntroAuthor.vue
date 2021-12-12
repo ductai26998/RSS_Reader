@@ -9,6 +9,10 @@
       <span class="subtitle">Địa chỉ: </span>
       {{ currentChanel.url }}
     </p>
+    <p class="creatd-at">
+      <span class="subtitle">Ngày thêm: </span>
+      {{ new Date(currentChanel.createdAt) | moment("DD/MM/YYYY") }}
+    </p>
     <div class="action">
       <button class="btn btn-danger" @click="deleteRSS()">Xóa kênh</button>
     </div>
@@ -17,14 +21,7 @@
 
 <script>
 import { mapState } from "vuex";
-import {
-  doc,
-  deleteDoc,
-  query,
-  where,
-  getDocs,
-  collection,
-} from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import "firebase/storage";
 import "firebase/firestore";
@@ -37,17 +34,12 @@ export default {
     async deleteRSS() {
       try {
         const db = getFirestore();
-        const ref = collection(db, "urls");
-        const q = query(ref, where("id", "==", this.currentChanel.id));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach(async (element) => {
-          await deleteDoc(doc(db, "urls", element.id));
-          alert("Xóa kênh thành công");
-          this.$router.push("/");
-          this.$router.go();
-        });
+        await deleteDoc(doc(db, "urls", this.currentChanel.id));
+        alert("Xóa kênh thành công");
+        this.$router.push("/");
+        this.$router.go();
       } catch (err) {
-        console.log(err);
+        alert(err);
       }
     },
   },
